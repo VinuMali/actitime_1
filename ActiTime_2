@@ -1,0 +1,32 @@
+package Action;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Keyup_1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver=new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://collegedunia.com/college/2868-mallamma-marimallappa-womens-arts-and-commerce-college-mysore");
+		List<WebElement> allfeature = driver.findElements(By.xpath("//li[@class='jsx-947163246 text-nowrap active']//a"));
+		Actions action = new  Actions(driver);
+		action.keyDown(Keys.CONTROL).perform();
+		for(WebElement ele:allfeature) {
+			ele.click();
+		}
+		action.keyUp(Keys.CONTROL).perform();
+		
+
+	}
+
+}
